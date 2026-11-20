@@ -1,0 +1,4 @@
+variant,n_questions,latency_s,abstained,n_cited,unretrieved_citation,ghost_citation,hit_at_k,article_recall,mrr,citation_precision,citation_recall,false_abstention,correct_abstention
+A,40,10.8,0.325,0.8,0.325,0.2,0.889,0.833,0.719,0.333,0.236,0.25,1.0
+B,40,9.3,0.175,1.0,0.0,0.0,0.833,0.778,0.708,0.808,0.736,0.083,1.0
+C,40,8.6,0.175,1.075,0.0,0.0,0.861,0.792,0.847,0.824,0.792,0.083,1.0

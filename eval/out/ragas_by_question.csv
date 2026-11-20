@@ -1,0 +1,6 @@
+variant,qid,faithfulness,context_recall
+B,q01,1.0,1.0
+B,q02,0.6,0.5
+B,q03,1.0,1.0
+B,q04,0.0,0.0
+B,q05,1.0,0.5

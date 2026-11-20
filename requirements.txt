@@ -1,0 +1,17 @@
+# Extraction
+pypdf>=4.0
+beautifulsoup4>=4.12
+lxml>=5.0
+# RAG
+langchain-text-splitters>=0.3
+langchain-core>=0.3
+langchain-anthropic>=0.3   # ou langchain-groq (gratuit) / langchain-ollama (local)
+chromadb>=0.5
+sentence-transformers>=3.0
+# Reranker (version C) : cross-encoder via sentence-transformers
+# Évaluation
+ragas>=0.4,<0.5
+datasets>=2.20
+# Restitution
+streamlit>=1.38
+pandas>=2.0
