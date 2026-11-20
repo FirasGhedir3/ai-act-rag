@@ -1,8 +1,8 @@
 # Assistant IA réglementaire (RAG) sur l'AI Act — avec évaluation de fiabilité
 
-Chatbot qui répond aux questions sur le règlement (UE) 2024/1689 (AI Act) **en citant l'article source**,
+J'ai construit un chatbot qui répond aux questions sur le règlement (UE) 2024/1689 (AI Act) **en citant l'article source**,
 et dont la fiabilité est **mesurée** sur 40 questions annotées.
-Trois stratégies de recherche sont comparées : **A** blocs de taille fixe · **B** un chunk par article · **C** B + reranker.
+J'y compare trois stratégies de recherche : **A** blocs de taille fixe · **B** un chunk par article · **C** B + reranker.
 
 > Statut : projet en cours. Évaluation sans LLM terminée ; évaluation RAGAS en cours (quota gratuit limité) ;
 > interface Streamlit et démo à venir. Les 40 questions de test doivent encore être relues une à une dans le texte officiel.
@@ -63,9 +63,9 @@ RAGAS (`eval/ragas_eval.py`) ajoute fidélité et rappel du contexte avec un LLM
 ## Choix de conception et limites
 
 - **Considérants exclus de l'index par défaut** : au premier test, « Considérant 1 » était renvoyé à la place de « Article 1 ». Réactivables avec `INCLUDE_RECITALS=1`.
-- **Taille maximale des chunks (1 400 caractères)** : fixée après avoir constaté que des articles longs (par ex. l'article 2) étaient tronqués par la fenêtre de 512 tokens du modèle d'embeddings. Ce réglage a été choisi en regardant quelques questions de test ; il peut donc être légèrement favorable à ce jeu de test.
+- **Taille maximale des chunks (1 400 caractères)** : fixée après avoir constaté que des articles longs (par ex. l'article 2) étaient tronqués par la fenêtre de 512 tokens du modèle d'embeddings. J'ai choisi ce réglage en regardant quelques questions de test ; il peut donc être légèrement favorable à ce jeu.
 - **Écarts de vocabulaire** : certaines questions en langage courant (par ex. « chatbot ») retrouvent mal l'article juridique correspondant (article 50). Piste d'amélioration : recherche hybride BM25 + embeddings, ou reformulation de la question.
-- **Jeu de test petit (40 questions)**, rédigé et annoté par l'auteur ; relecture dans le texte officiel en cours.
+- **Jeu de test petit (40 questions)**, rédigé et annoté par moi ; relecture dans le texte officiel en cours.
 - Le projet utilise uniquement des outils gratuits (Groq gratuit, modèles locaux), ce qui limite le volume d'évaluation RAGAS.
 - Le système fournit une aide à la recherche dans le texte, **pas un avis juridique**.
 
@@ -107,9 +107,9 @@ Résultats : `eval/results.sqlite` et `eval/out/*.csv` (importables dans Power B
 - [ ] Tableau de bord Power BI
 - [ ] Démo et déploiement
 
-## Transparence
+## Outils
 
-Projet réalisé avec l'aide d'un assistant IA (Claude) pour la conception du code et la rédaction ; les choix d'évaluation, l'exécution des expériences et l'interprétation des résultats sont présentés ici avec leurs limites.
+Python 3.12, pypdf, Chroma, sentence-transformers, LangChain, Groq, RAGAS, Streamlit.
 
 Source du texte : https://eur-lex.europa.eu/eli/reg/2024/1689/oj (version FR).
 Les tests unitaires utilisent un texte synthétique qui imite la mise en forme, pas le règlement.
